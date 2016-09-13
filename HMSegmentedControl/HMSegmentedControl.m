@@ -330,6 +330,9 @@
             // Vertical Divider
             if (self.isVerticalDividerEnabled && idx > 0) {
                 CALayer *verticalDividerLayer = [CALayer layer];
+                if (self.verticalDividerHeight > 0) {
+                    rectDiv = CGRectMake(rectDiv.origin.x, rectDiv.origin.y + rectDiv.size.height/2 - self.verticalDividerHeight, rectDiv.size.width, self.verticalDividerHeight);
+                }
                 verticalDividerLayer.frame = rectDiv;
                 verticalDividerLayer.backgroundColor = self.verticalDividerColor.CGColor;
                 
@@ -366,6 +369,12 @@
             if (self.isVerticalDividerEnabled && idx>0) {
                 CALayer *verticalDividerLayer = [CALayer layer];
                 verticalDividerLayer.frame = CGRectMake((self.segmentWidth * idx) - (self.verticalDividerWidth / 2), self.selectionIndicatorHeight * 2, self.verticalDividerWidth, self.frame.size.height-(self.selectionIndicatorHeight * 4));
+                if (self.verticalDividerHeight > 0) {
+                    verticalDividerLayer.frame = CGRectMake((self.segmentWidth * idx) - (self.verticalDividerWidth / 2), self.frame.size.height/2 - self.verticalDividerHeight/2, self.verticalDividerWidth, self.verticalDividerHeight);
+                }else {
+                    verticalDividerLayer.frame = CGRectMake((self.segmentWidth * idx) - (self.verticalDividerWidth / 2), self.selectionIndicatorHeight * 2, self.verticalDividerWidth, self.frame.size.height-(self.selectionIndicatorHeight * 4));
+                }
+                
                 verticalDividerLayer.backgroundColor = self.verticalDividerColor.CGColor;
                 
                 [self.scrollView.layer addSublayer:verticalDividerLayer];

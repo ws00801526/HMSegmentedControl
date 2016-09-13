@@ -180,6 +180,10 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlType) {
  */
 @property(nonatomic, getter = isVerticalDividerEnabled) BOOL verticalDividerEnabled;
 
+/** 分割线高度 */
+@property (assign, nonatomic) CGFloat verticalDividerHeight;
+
+
 /**
  Index of the currently selected segment.
  */
