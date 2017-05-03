@@ -159,6 +159,8 @@
     self.selectionIndicatorBoxLayer.borderWidth = 1.0f;
     self.selectionIndicatorBoxOpacity = 0.2;
     
+    self.selectionFixedWidth = 20.f;
+    
     self.contentMode = UIViewContentModeRedraw;
 }
 
@@ -585,7 +587,14 @@
         
         CGFloat x = widthToStartOfSelectedIndex + ((widthToEndOfSelectedSegment - widthToStartOfSelectedIndex) / 2) - (self.selectionIndicatorHeight/2);
         return CGRectMake(x - (self.selectionIndicatorHeight / 2), indicatorYOffset, self.selectionIndicatorHeight * 2, self.selectionIndicatorHeight);
-    } else {
+    }else if (self.selectionStyle == HMSegmentedControlSelectionStyleWidthFixed) {
+        
+        CGFloat widthToEndOfSelectedSegment = (self.segmentWidth * self.selectedSegmentIndex) + self.segmentWidth;
+        CGFloat widthToStartOfSelectedIndex = (self.segmentWidth * self.selectedSegmentIndex);
+        
+        CGFloat x = widthToStartOfSelectedIndex + ((widthToEndOfSelectedSegment - widthToStartOfSelectedIndex) / 2) ;
+        return CGRectMake(x - (self.selectionFixedWidth / 2), indicatorYOffset, self.selectionFixedWidth, self.selectionIndicatorHeight);
+    }else {
         if (self.selectionStyle == HMSegmentedControlSelectionStyleTextWidthStripe &&
             sectionWidth <= self.segmentWidth &&
             self.segmentWidthStyle != HMSegmentedControlSegmentWidthStyleDynamic) {

@@ -31,6 +31,8 @@
     HMSegmentedControl *segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"Trending", @"News", @"Library"]];
     segmentedControl.frame = CGRectMake(0, 20, viewWidth, 40);
     segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
+    segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleWidthFixed;
+    segmentedControl.selectionFixedWidth = 10.f;
     [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:segmentedControl];
     
@@ -40,7 +42,8 @@
     segmentedControl1.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
     segmentedControl1.frame = CGRectMake(0, 60, viewWidth, 40);
     segmentedControl1.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
-    segmentedControl1.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
+    segmentedControl1.selectionStyle = HMSegmentedControlSelectionStyleWidthFixed;
+    segmentedControl1.selectionFixedWidth = 10.f;
     segmentedControl1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     segmentedControl1.verticalDividerEnabled = YES;
     segmentedControl1.verticalDividerColor = [UIColor blackColor];
@@ -69,7 +72,8 @@
     segmentedControl2.selectionIndicatorHeight = 4.0f;
     segmentedControl2.backgroundColor = [UIColor clearColor];
     segmentedControl2.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    segmentedControl2.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
+    segmentedControl2.selectionStyle = HMSegmentedControlSelectionStyleWidthFixed;
+    segmentedControl2.selectionFixedWidth = 10.f;
     [segmentedControl2 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:segmentedControl2];
 
