@@ -273,11 +273,13 @@
     UIRectFill([self bounds]);
     
     self.selectionIndicatorArrowLayer.backgroundColor = self.selectionIndicatorColor.CGColor;
-    
     self.selectionIndicatorStripLayer.backgroundColor = self.selectionIndicatorColor.CGColor;
     
     self.selectionIndicatorBoxLayer.backgroundColor = self.selectionIndicatorBoxColor.CGColor;
     self.selectionIndicatorBoxLayer.borderColor = self.selectionIndicatorBoxColor.CGColor;
+    
+    self.selectionIndicatorBoxLayer.cornerRadius = self.selectionIndicatorBoxCornerRadius;
+    self.selectionIndicatorBoxLayer.masksToBounds = (self.selectionIndicatorBoxCornerRadius > .0f);
     
     // Remove all sublayers to avoid drawing images over existing ones
     self.scrollView.layer.sublayers = nil;
