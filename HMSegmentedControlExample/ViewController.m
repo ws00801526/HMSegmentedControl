@@ -98,15 +98,18 @@
     [self.view addSubview:segmentedControl3];
     
     // Tying up the segmented control to a scroll view
-    self.segmentedControl4 = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 260, viewWidth, 50)];
-    self.segmentedControl4.sectionTitles = @[@"Worldwide", @"Local", @"Headlines"];
-    self.segmentedControl4.selectedSegmentIndex = 1;
-    self.segmentedControl4.backgroundColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1];
+    self.segmentedControl4 = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(viewWidth/2.f - 195/2.f, 260, 195, 35.f)];
+    self.segmentedControl4.layer.cornerRadius = 4.f;
+    self.segmentedControl4.layer.masksToBounds = YES;
+    self.segmentedControl4.sectionTitles = @[@"我发送的", @"我收到的"];
+    self.segmentedControl4.backgroundColor = [UIColor colorWithRed:223/255.f green:50/255.f blue:50/255.f alpha:1];
     self.segmentedControl4.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    self.segmentedControl4.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1]};
-    self.segmentedControl4.selectionIndicatorColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1];
+    self.segmentedControl4.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:248/255.f green:72/255.f blue:72/255.f alpha:1]};
     self.segmentedControl4.selectionStyle = HMSegmentedControlSelectionStyleBox;
-    self.segmentedControl4.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationUp;
+    self.segmentedControl4.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
+    self.segmentedControl4.selectionIndicatorBoxOpacity = 1.f;
+    self.segmentedControl4.selectionIndicatorBoxCornerRadius = 4.f;
+    self.segmentedControl4.selectionIndicatorBoxColor = [UIColor whiteColor];
     self.segmentedControl4.tag = 3;
     
     __weak typeof(self) weakSelf = self;
